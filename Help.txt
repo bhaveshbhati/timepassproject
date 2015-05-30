@@ -1,0 +1,2 @@
+Contents of the folder
+1. Manifest.json
