@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "Share It Buddy - Save and Share Sessions",
+  "description": "Extension to save and share sessions with friends",
+  "version": "1.0",
+  "browser_action": {
+   "default_icon": "icons/extensionicon19.png",
+   "default_popup": "index.html"
+  },
+  "permissions": [
+   "activeTab"
+   ]
+}
