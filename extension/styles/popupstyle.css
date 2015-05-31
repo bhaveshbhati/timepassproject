@@ -46,3 +46,19 @@ td
 {
     font-weight:Bold;
 }
+
+.tabs-link-title:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tabs-link-img-cross
+{
+    opacity: 0;
+}
+
+.tabs-link-row:hover > .tabs-link-img-cross
+{
+    opacity: 1;
+} 

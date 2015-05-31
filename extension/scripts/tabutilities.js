@@ -5,7 +5,7 @@ function loadTabsInfo() {
 			var tab = tabs[index];
 			
 			// Cross
-			var tdCrossIcon = $('<td/>').addClass('tabs-link-img-td-common');
+			var tdCrossIcon = $('<td/>').addClass('tabs-link-img-td-common tabs-link-img-cross');
 			var img_cross = $('<img/>').attr('src', 'icons/crossicon16.png').addClass('tabs-link-img-common');
 			tdCrossIcon.append(img_cross);	
 			
@@ -15,14 +15,14 @@ function loadTabsInfo() {
 			tdFavIcon.append(img_favicon);	
 			
 			// Title		
-			var tdTabTitle = $('<td/>').text(tab.title);
+			var tdTabTitle = $('<td/>').text(tab.title).addClass('tabs-link-title').attr('title', tab.url);
 			
 			// Current Selected Tab
 			if (tab.active) {
 				tdTabTitle.addClass('makeTextBold');
 			}
 
-			var tr = $('<tr/>').attr('tab-id', tab.id);
+			var tr = $('<tr/>').attr('tab-id', tab.id).addClass('tabs-link-row');
 
 			tr.append(tdCrossIcon);
 			tr.append(tdFavIcon);
@@ -38,10 +38,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	loadTabsInfo();
 	
 	// On Click event on the table row
-	$("table").delegate("tr", "click", function () {
-		var tab_id = $(this).attr('tab-id');
+	$("table").delegate(".tabs-link-title", "click", function () {
+		var tab_id = $(this).parent("tr").attr('tab-id');
 		// On click make the tab active
 		chrome.tabs.update(parseInt(tab_id), { active: true });
 	});
-
+    
+	// On Click event on the cross icon
+	$("table").delegate(".tabs-link-img-cross", "click", function () {
+		var tab_id = $(this).parent("tr").attr('tab-id');
+		// On click close the tab
+		chrome.tabs.remove(parseInt(tab_id));
+		// Also remove from the table shown to user
+		$(this).parent("tr").remove();
+	});
+	
 });
