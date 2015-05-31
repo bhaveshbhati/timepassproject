@@ -1,36 +1,48 @@
-* {
+* 
+{
     margin: 0;
     padding: 0;
 }
 
-body {
+body 
+{
     width:600px;
     font-family: calibri;
     background-color: #C8C8C8
 }
 
-#activeTabsInPopUpPage {
+#activeTabsInPopUpPage 
+{
     margin-top: 5px;
     border-collapse: collapse;
     width: 600px;
 }
 
-#popuppageheader {
+#popuppageheader 
+{
     text-align: center;
 }
 
 tr:nth-child(even) {background: #D8D8D8 }
 tr:nth-child(odd) {background: #F0F0F0}
 
-td {
-    padding: 4px;    
+td 
+{
+    padding: 4px;
 }
 
-.tabs-link-img {
+.tabs-link-img-td-common 
+{
+    width:16px;
+}
+
+.tabs-link-img-common 
+{
     width: 16px;
     height: 16px;
 }
 
-.makeTextBold {
+.makeTextBold 
+{
     font-weight:Bold;
 }
