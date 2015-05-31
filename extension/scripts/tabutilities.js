@@ -3,6 +3,7 @@ function loadTabsInfo() {
 	chrome.tabs.query({}, function(tabs) {
 		for (var index = 0; index < tabs.length; index++) {
 			var tab = tabs[index];
+			
 			// Icon 		
 			var tdFavIcon = $('<td/>');
 			var img = $('<img/>').attr('src', tab.favIconUrl).addClass('tabs-link-img');
@@ -11,7 +12,13 @@ function loadTabsInfo() {
 			// Title		
 			var tdTabTitle = $('<td/>').text(tab.title);
 			
-			var tr = $('<tr/>');
+			// Current Selected Tab
+			if(tab.active) {
+				tdTabTitle.addClass('makeTextBold');
+			}
+			
+			var tr = $('<tr/>').attr('tab-id', tab.id);
+			
 			tr.append(tdFavIcon);
 			tr.append(tdTabTitle);
 			

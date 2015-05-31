@@ -30,3 +30,7 @@ td {
     width: 16px;
     height: 16px;
 }
+
+.makeTextBold {
+    font-weight:Bold;
+}
